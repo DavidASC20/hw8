@@ -22,17 +22,16 @@ char * mystrncpy(char *dest, char *source, int n){
 
 char *mystrcat(char *dest, char *source){
     char *val = dest;                   // make value point to dest
-    int count = 0;
     while(*dest){
         dest++;
-        count++;
     }
 
     while(*source){
-        dest[count] = *source;
+        *dest = *source;
         source++;
-        count++;
+        dest++;
     }
+
     *dest = '\0';
     return val;
 }
