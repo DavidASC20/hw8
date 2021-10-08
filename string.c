@@ -2,29 +2,28 @@
 #include <stdlib.h>
 #include "string.h"
 int mystrlen(char *s){
-  int x = 0;
   int count = 0;
-  while(s[x] != 0){
+  while(*s){
     count ++;
-    x++;
+    s++;
   }
   return count;
 }
 
-char *mystrcopy(char *dest, char *source){
-  int x = 0;
-  while(source[x] != 0){
+char *mystrncopy(char *dest, char *source, int n){
+  char *val = dest;
+  int x;
+  for(x = 0; x < n; x++){
     dest[x] = source[x];
-    x++;
-  }source[x] = 0;
-  return dest;
+  }
+  return val;
 }
 
 int main(){
   char s[12] = "Hello World";
   char dest[12];
   printf("%i\n", mystrlen(s));
-  printf("%s\n", mystrcopy(s, dest));
+  printf("%s\n", mystrncopy(s, dest, 12));
 }
 
 
